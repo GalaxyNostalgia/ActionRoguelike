@@ -5,6 +5,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 ASCharacter::ASCharacter()
@@ -33,12 +34,19 @@ void ASCharacter::BeginPlay()
 
 void ASCharacter::MoveForward(float Value)
 {
-	AddMovementInput(GetActorForwardVector(), Value);
+	FRotator ControlRot = GetControlRotation();
+	ControlRot.Pitch = 0.0f;
+	ControlRot.Roll = 0.0f;
+	AddMovementInput(ControlRot.Vector(), Value);
 }
 
 void ASCharacter::MoveRight(float Value)
 {
-	AddMovementInput(GetActorRightVector(), Value);
+	FRotator ControlRot = GetControlRotation();
+	ControlRot.Pitch = 0.0f;
+	ControlRot.Roll = 0.0f;
+	FVector RightVector =  FRotationMatrix(ControlRot).GetScaledAxis(EAxis::Y);
+	AddMovementInput(RightVector, Value);
 }
 
 // Called every frame
