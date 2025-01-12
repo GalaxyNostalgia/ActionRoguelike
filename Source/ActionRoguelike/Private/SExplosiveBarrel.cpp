@@ -2,10 +2,9 @@
 
 
 #include "SExplosiveBarrel.h"
-
-#include "Components/BoxComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "PhysicsEngine/RadialForceComponent.h"
-#include "ProfilingDebugging/CookStats.h"
+
 
 // Sets default values
 ASExplosiveBarrel::ASExplosiveBarrel()
@@ -19,9 +18,9 @@ ASExplosiveBarrel::ASExplosiveBarrel()
 
 	ForceComp->SetAutoActivate(false);
 
-	ForceComp->Radius = 200;
+	ForceComp->Radius = 750.0f;
 	ForceComp->ImpulseStrength = 2500.0f;
-	ForceComp->bImpulseVelChange = false;
+	ForceComp->bImpulseVelChange = true;
 
 	ForceComp->AddCollisionChannelToAffect(ECC_WorldDynamic);
 	
