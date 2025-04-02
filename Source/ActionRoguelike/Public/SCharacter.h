@@ -22,6 +22,9 @@ protected:
 	TSubclassOf<AActor> ProjectileClass;
 
 	UPROPERTY(EditAnywhere, Category = "Attack");
+	TSubclassOf<AActor> Proj_BlackHole;
+	
+	UPROPERTY(EditAnywhere, Category = "Attack");
 	UAnimMontage* AttackAnim;
 
 	FTimerHandle TimerHandle_PrimaryAttack;
@@ -54,6 +57,8 @@ protected:
 	void PrimaryInteract();
 
 	void SpawnProjectile(TSubclassOf<AActor> ClassToSpawn);
+
+	void BlackHole();
 
 public:	
 	// Called every frame

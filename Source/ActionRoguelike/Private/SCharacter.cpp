@@ -75,6 +75,7 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("PrimaryAttack", IE_Pressed, this, &ASCharacter::PrimaryAttack);
 	PlayerInputComponent->BindAction("PrimaryInteract", IE_Pressed, this, &ASCharacter::PrimaryInteract);
+	PlayerInputComponent->BindAction("BlackHole", IE_Pressed, this, &ASCharacter::BlackHole);
 
 }
 
@@ -108,6 +109,11 @@ void ASCharacter::PrimaryAttack()
 void ASCharacter::PrimaryAttack_TimeElapsed()
 {
 	SpawnProjectile(ProjectileClass);
+}
+
+void ASCharacter::BlackHole()
+{
+	SpawnProjectile(Proj_BlackHole);
 }
 
 void ASCharacter::SpawnProjectile(TSubclassOf<AActor> ClassToSpawn)
