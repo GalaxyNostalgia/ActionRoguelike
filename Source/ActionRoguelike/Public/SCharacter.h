@@ -23,6 +23,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Attack");
 	TSubclassOf<AActor> Proj_BlackHole;
+
+	UPROPERTY(EditAnywhere, Category = "Attack");
+	TSubclassOf<AActor> Proj_Dash;
 	
 	UPROPERTY(EditAnywhere, Category = "Attack");
 	UAnimMontage* AttackAnim;
@@ -59,6 +62,8 @@ protected:
 	void SpawnProjectile(TSubclassOf<AActor> ClassToSpawn);
 
 	void BlackHole();
+	
+	void Dash();
 
 public:	
 	// Called every frame

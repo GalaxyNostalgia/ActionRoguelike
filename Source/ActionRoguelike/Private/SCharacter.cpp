@@ -116,6 +116,11 @@ void ASCharacter::BlackHole()
 	SpawnProjectile(Proj_BlackHole);
 }
 
+void ASCharacter::Dash()
+{
+	SpawnProjectile(Proj_Dash);
+}
+
 void ASCharacter::SpawnProjectile(TSubclassOf<AActor> ClassToSpawn)
 {
 	if (ensureAlways(ClassToSpawn))
