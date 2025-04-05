@@ -36,11 +36,11 @@ void ASProjectileBase::OnActorHit(UPrimitiveComponent* HitComponent, AActor* Oth
 	Explode();
 }
 
-void ASProjectileBase::Explode()
+void ASProjectileBase::Explode_Implementation()
 {
-	if (ensure(!IsPendingKill))
+	if (ensure(!IsEliminatingGarbage(EGCOptions::None)))
 	{
-		UGameplayStatics::SpawnEmitterAtLocation(this, Impact_VFX, GetActorLocation(), GetActorRotation());
+		UGameplayStatics::SpawnEmitterAtLocation(this, ImpactVFX, GetActorLocation(), GetActorRotation());
 
 		Destroy();
 	}
