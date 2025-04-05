@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "DrawDebugHelpers.h"
+#include "SDashProjectile.h"
 #include "SInteractionComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 
@@ -78,6 +79,8 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 	PlayerInputComponent->BindAction("PrimaryAttack", IE_Pressed, this, &ASCharacter::PrimaryAttack);
 	PlayerInputComponent->BindAction("PrimaryInteract", IE_Pressed, this, &ASCharacter::PrimaryInteract);
 	PlayerInputComponent->BindAction("BlackHoleAttack", IE_Pressed, this, &ASCharacter::BlackHoleAttack);
+	PlayerInputComponent->BindAction("Dash", IE_Pressed, this, &ASCharacter::Dash);
+
 
 }
 
@@ -134,7 +137,7 @@ void ASCharacter::Dash()
 
 void ASCharacter::Dash_TimeElapsed()
 {
-	/*#SpawnProjectile(DashProjectileClass);*/
+	SpawnProjectile(DashProjectileClass);
 }
 
 void ASCharacter::SpawnProjectile(TSubclassOf<AActor> ClassToSpawn)

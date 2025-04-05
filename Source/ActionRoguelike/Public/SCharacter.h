@@ -25,11 +25,12 @@ protected:
 	TSubclassOf<AActor> BlackHoleProjectileClass;
 
 	UPROPERTY(EditAnywhere, Category = "Attack");
-	TSubclassOf<AActor> Proj_Dash;
+	TSubclassOf<AActor> DashProjectileClass;
 	
 	UPROPERTY(EditAnywhere, Category = "Attack");
 	UAnimMontage* AttackAnim;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Attack");
 	float AttackAnimDelay;
 
 	FTimerHandle TimerHandle_PrimaryAttack;
