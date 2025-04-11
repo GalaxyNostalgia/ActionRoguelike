@@ -12,7 +12,6 @@ ASMagicProjectile::ASMagicProjectile()
 	SphereComp->SetSphereRadius(20.0f);
 	SphereComp->OnComponentBeginOverlap.AddDynamic(this, &ASMagicProjectile::OnActorOverlap);
 	MoveComp->InitialSpeed = 1000.0f;
-
 	
 }
 
